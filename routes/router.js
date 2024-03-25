@@ -38,7 +38,7 @@ router.post("/joke", [
 router.put("/joke/:id", controller.putJoke)
 
 //6. PATCH a joke
-router.get("/filter", controller.getFilter)
+router.patch("/joke/:id", controller.patchJoke)
 
 //7. DELETE Specific joke
 router.delete("/joke/:id", controller.deleteJoke)

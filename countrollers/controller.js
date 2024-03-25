@@ -60,6 +60,26 @@ exports.getFilter = (req, res) => {
       joke
     })
     };
+  exports.patchJoke = (req, res) => {
+    const jokeId = parseInt(req.params.id);
+    const {jokeType,jokeText} = req.body;
+
+    const existingJoke= jokes.find((joke)=>joke.id===jokeId)
+    const joke= {
+      id: jokeId,
+      jokeText: jokeText || existingJoke.jokeText,
+      jokeType: jokeType || existingJoke.jokeType,
+    }
+ 
+    const jokeindex= jokes.findIndex((joke)=>joke.id===jokeId)
+    jokes[jokeindex]=joke;
+
+    res.status(200).json({
+      message : "Success",
+      joke
+    })
+    };
+
   exports.deleteJoke = (req, res) => {
   
     const jokeId = parseInt(req.params.id);
