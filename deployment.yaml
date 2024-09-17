@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: joke-api-dep
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: joke-api
+      backEnd: joke-api-backEnd
+  template:
+    metadata:
+      labels:
+        app: joke-api
+        backEnd: joke-api-backEnd
+    spec:
+      containers:
+      - name: joke-api-container
+        image: sohail978/joke-api:1.0

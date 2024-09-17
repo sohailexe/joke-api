@@ -1,3 +1,4 @@
 
 002 6.0-DIY-API/
 node_modules/
+*.pem

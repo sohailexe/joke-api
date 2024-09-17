@@ -1,0 +1,7 @@
+version: '3.8'
+
+services:
+  app:
+    build: .  # Build the Dockerfile in the current directory
+    ports:
+      - "3000:3000"  # Map port 3000 on the host to port 3000 in the container

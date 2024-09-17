@@ -1,0 +1,19 @@
+kind: Service 
+apiVersion: v1 
+metadata:
+  name: joke-service 
+spec:
+  # Expose the service on a static port on each node
+  # so that we can access the service from outside the cluster 
+  type: LoadBalancer
+
+  # When the node receives a request on the static port (30163)
+  # "select pods with the label 'app' set to 'echo-hostname'"
+  # and forward the request to one of them
+  selector:
+    app: joke-api
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 3000
+ 
